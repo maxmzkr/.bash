@@ -39,7 +39,7 @@ walk_and_source() {
 		done < "${BASH_SOURCE%/*}/.gitignore"
 
 		if [[ ${continue_set} -eq 1 ]]; then
-			continue
+			echo "${object}"
 		fi
 
 
