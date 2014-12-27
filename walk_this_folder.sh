@@ -18,12 +18,10 @@ walk_and_source() {
   fi
   
   local directory_list=("${directory}"/*)
-	local hidden_directory_list=("${directory}"/.*)
-	directory_list=("${directory_list[@]}" "${hidden_directory_list[@]}")
+	local hidden_directory_list=("${directory}"/.*) directory_list=("${directory_list[@]}" "${hidden_directory_list[@]}")
 
   for object in "${directory_list[@]}"; do
 		local filename="${object##*/}"
-		echo "${object}"
     if [[ "${BASH_SOURCE}" -ef "${object}" ]]; then
       continue
 		elif [[ "${BASH_SOURCE}~" -ef "${object}" ]]; then
@@ -33,10 +31,8 @@ walk_and_source() {
     elif [[ "${filename}" = '.' || "${filename}" = '..' ]]; then
       continue
 		elif [[ "${filename}" = 'README.md' ]]; then
-			echo "match"
 			continue
 		elif [[ "${filename}" = '.gitignore' ]]; then
-			echo "match"
 			continue
 		fi
 
