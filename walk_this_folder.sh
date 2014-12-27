@@ -7,7 +7,7 @@
 # Globals:
 #   None
 # Arguments:
-#   None
+#   Folder to walk
 # Returns:
 #   None
 #######################################
@@ -18,21 +18,33 @@ walk_and_source() {
   fi
   
   local directory_list=("${directory}"/*)
+	local hidden_directory_list=("${directory}"/.*)
+	directory_list=("${directory_list[@]}" "${hidden_directory_list[@]}")
 
   for object in "${directory_list[@]}"; do
+		local filename="${object##*/}"
+		echo "${object}"
     if [[ "${BASH_SOURCE}" -ef "${object}" ]]; then
       continue
 		elif [[ "${BASH_SOURCE}~" -ef "${object}" ]]; then
 			continue
-    elif [[ "${object}" = '.' || "${object}" = '..' ]]; then
+		elif [[ "${BASH_SOURCE%/*}/.git" -ef "${object}" ]]; then
+			continue
+    elif [[ "${filename}" = '.' || "${filename}" = '..' ]]; then
       continue
-		elif [[ "${object}" -ef 'README.md' ]]; then
+		elif [[ "${filename}" = 'README.md' ]]; then
+			echo "match"
+			continue
+		elif [[ "${filename}" = '.gitignore' ]]; then
+			echo "match"
 			continue
 		fi
 
 		local continue_set=0
 		while read line; do
-			if [[ "${object}" =~ ^$line$ ]]; then
+			grep -q -E "${line}" <<< ${object}
+			local grep_found="${?}"
+			if [[ "${grep_found}" -eq 0 ]]; then
 				continue_set=1
 				break
 			fi
