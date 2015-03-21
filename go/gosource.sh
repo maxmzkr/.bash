@@ -10,4 +10,4 @@ gosource() {
   echo "GOPATH is now ${GOPATH}"
 }
 
-
+export GOPATH="/home/max/gopath"
