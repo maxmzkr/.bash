@@ -4,3 +4,4 @@ source /home/max/.bash/user-bin.sh
 source /home/max/.bash/go/go.sh
 source /home/max/.bash/deepfield/virtual_evn.sh
 source /home/max/.bash/git/git_branch.sh
+source /home/max/.bash/haskell/haskell.sh
