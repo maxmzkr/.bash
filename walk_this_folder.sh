@@ -1,16 +1,20 @@
 #!/bin/bash
-source /home/max/.bash/nmr.sh
+source ~/.bash/nmr.sh
+source ~/.bash/set-title.sh
 
-source /home/max/.bash/betty.sh
+source ~/.bash/betty.sh
 
-source /home/max/.bash/user-bin.sh
+source ~/.bash/user-bin.sh
 
-source /home/max/.bash/go/go.sh
+source ~/.bash/go/go.sh
 
-source /home/max/.bash/deepfield/virtual_evn.sh
+source ~/.bash/deepfield/virtual_evn.sh
 
-source /home/max/.bash/git/git_branch.sh
-source /home/max/.bash/haskell/haskell.sh
+source ~/.bash/git/git_branch.sh
+source ~/.bash/haskell/haskell.sh
 
-source /home/max/.bash/up-arrow/up-arrow.sh
-source /home/max/.bash/deepfield/pdl.sh
+source ~/.bash/up-arrow/up-arrow.sh
+
+source ~/.bash/deepfield/pdl.sh
+
+source ~/.bash/rand+.sh

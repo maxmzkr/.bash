@@ -1,0 +1,21 @@
+#!/bin/bash
+source /home/max/.bash/nmr.sh
+
+source /home/max/.bash/betty.sh
+
+source /home/max/.bash/user-bin.sh
+
+source /home/max/.bash/go/go.sh
+
+source /home/max/.bash/deepfield/virtual_evn.sh
+
+source /home/max/.bash/git/git_branch.sh
+source /home/max/.bash/haskell/haskell.sh
+
+source /home/max/.bash/up-arrow/up-arrow.sh
+<<<<<<< HEAD
+source /home/max/.bash/deepfield/pdl.sh
+=======
+
+source ~/.bash/set-title.sh
+>>>>>>> 9c123b414c192622c4beb0dfd259200eb94943c8
